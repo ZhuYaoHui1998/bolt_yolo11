@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实时目标检测</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+        .video {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>实时目标检测视频流</h1>
+    <div class="container">
+        <div class="video">
+            <h3>左侧摄像头</h3>
+            <img src="{{ url_for('video_feed_left') }}" width="640" height="480">
+        </div>
+        <div class="video">
+            <h3>右侧摄像头</h3>
+            <img src="{{ url_for('video_feed_right') }}" width="640" height="480">
+        </div>
+    </div>
+</body>
+</html>
