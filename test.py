@@ -119,6 +119,11 @@ class LeftThread(threading.Thread):
                 cv2.line(annotated_frame, (center_box_x, center_box_y), (center_x, center_y), (0, 0, 255), 2)
                 cv2.putText(annotated_frame, f"Dist X: {dist_x} px", (center_box_x + 10, center_box_y + 20),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 0), 2)
+                # Draw red line below the crosshair at distance_value distance
+                cv2.line(annotated_frame, (0, center_y + distance_value), (width, center_y + distance_value), (0, 0, 255), 2)  # Red line below
+
+                # Draw red line above the crosshair at distance_value distance
+                cv2.line(annotated_frame, (0, center_y - distance_value), (width, center_y - distance_value), (0, 0, 255), 2)  # Red line above
 
             if len(boxes) == 0:
                 GPIO.output(io0, GPIO.LOW)
@@ -193,6 +198,11 @@ class RightThread(threading.Thread):
                 cv2.line(annotated_frame, (center_box_x, center_box_y), (center_x, center_y), (0, 0, 255), 2)
                 cv2.putText(annotated_frame, f"Dist X: {dist_x} px", (center_box_x + 10, center_box_y + 20),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 0), 2)
+                # Draw red line below the crosshair at distance_value distance
+                cv2.line(annotated_frame, (0, center_y + distance_value), (width, center_y + distance_value), (0, 0, 255), 2)  # Red line below
+
+                # Draw red line above the crosshair at distance_value distance
+                cv2.line(annotated_frame, (0, center_y - distance_value), (width, center_y - distance_value), (0, 0, 255), 2)  # Red line above
 
             if len(boxes) == 0:
                 GPIO.output(io1, GPIO.LOW)
